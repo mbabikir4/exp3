@@ -7,7 +7,7 @@ const app = express();
 // whatsapp import
 
 
-const { Client, LocalAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth, NoAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 //files for real
@@ -17,7 +17,7 @@ const { standingCon, goalsCon } = require('./functions/conditionals');
 
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new NoAuth()
 });
 
 // express work
