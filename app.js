@@ -23,7 +23,7 @@ const client = new Client({
 // express work
 
 let isReady = "Not Yet"
-const port = process.env.PORT || 3000
+const port = process.env.port || 3000
 app.listen(port);
 app.set('view engine', 'ejs')
 app.get('/', (req,res) => {
