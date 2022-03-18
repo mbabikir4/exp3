@@ -23,8 +23,8 @@ const client = new Client({
 // express work
 
 let isReady = "Not Yet";
-
-app.listen(8080);
+const port = process.env.PORT || 8080
+app.listen(port);
 app.set('view engine', 'ejs')
 app.get('/', (req,res) => {
     res.render("index", {text: isReady})
