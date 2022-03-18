@@ -1,0 +1,35 @@
+2022/03/18-19:48:29.845 29b03 Reusing MANIFEST /Users/mohi/exp1/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/MANIFEST-000001
+2022/03/18-19:48:29.845 29b03 Recovering log #643
+2022/03/18-19:48:29.893 29b03 Reusing old log /Users/mohi/exp1/.wwebjs_auth/session/Default/IndexedDB/https_web.whatsapp.com_0.indexeddb.leveldb/000643.log 
+2022/03/18-19:48:49.702 28c03 Level-0 table #663: started
+2022/03/18-19:48:49.805 28c03 Level-0 table #663: 1243281 bytes OK
+2022/03/18-19:48:49.843 28c03 Delete type=0 #643
+2022/03/18-19:48:50.566 29613 Compacting 1@0 + 0@1 files
+2022/03/18-19:48:50.634 29613 Generated table #664@0: 16585 keys, 440373 bytes
+2022/03/18-19:48:50.654 29613 Generated table #665@0: 817 keys, 25077 bytes
+2022/03/18-19:48:50.654 29613 Compacted 1@0 + 0@1 files => 465450 bytes
+2022/03/18-19:48:50.691 29613 compacted to: files[ 0 2 15 0 0 0 0 ]
+2022/03/18-19:48:50.692 29613 Delete type=2 #663
+2022/03/18-19:49:22.403 28c03 Compacting 1@1 + 9@2 files
+2022/03/18-19:49:22.489 28c03 Generated table #666@1: 40522 keys, 2241180 bytes
+2022/03/18-19:49:22.548 28c03 Generated table #667@1: 39940 keys, 2259663 bytes
+2022/03/18-19:49:22.597 28c03 Generated table #668@1: 40217 keys, 2207404 bytes
+2022/03/18-19:49:22.629 28c03 Generated table #669@1: 2635 keys, 2149045 bytes
+2022/03/18-19:49:22.661 28c03 Generated table #670@1: 2663 keys, 2148616 bytes
+2022/03/18-19:49:22.712 28c03 Generated table #671@1: 2427 keys, 2154506 bytes
+2022/03/18-19:49:22.752 28c03 Generated table #672@1: 11566 keys, 2171806 bytes
+2022/03/18-19:49:22.812 28c03 Generated table #673@1: 25386 keys, 2271785 bytes
+2022/03/18-19:49:22.859 28c03 Generated table #674@1: 16803 keys, 2193884 bytes
+2022/03/18-19:49:22.880 28c03 Generated table #675@1: 1148 keys, 239147 bytes
+2022/03/18-19:49:22.880 28c03 Compacted 1@1 + 9@2 files => 20037036 bytes
+2022/03/18-19:49:22.916 28c03 compacted to: files[ 0 1 16 0 0 0 0 ]
+2022/03/18-19:49:22.916 28c03 Delete type=2 #664
+2022/03/18-19:49:22.916 28c03 Delete type=2 #649
+2022/03/18-19:49:22.916 28c03 Delete type=2 #648
+2022/03/18-19:49:22.916 28c03 Delete type=2 #651
+2022/03/18-19:49:22.916 28c03 Delete type=2 #650
+2022/03/18-19:49:22.916 28c03 Delete type=2 #652
+2022/03/18-19:49:22.916 28c03 Delete type=2 #647
+2022/03/18-19:49:22.916 28c03 Delete type=2 #653
+2022/03/18-19:49:22.916 28c03 Delete type=2 #654
+2022/03/18-19:49:22.916 28c03 Delete type=2 #655
