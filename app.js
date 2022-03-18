@@ -23,7 +23,6 @@ const client = new Client({
 // express work
 
 let isReady = "Not Yet";
-let qrhtml = "x";
 
 app.listen(8080);
 app.set('view engine', 'ejs')
@@ -36,7 +35,6 @@ app.get('/', (req,res) => {
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
-    qrhtml = qr;
 });
 
 client.on('ready', () => {
