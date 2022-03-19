@@ -2,12 +2,10 @@
 
 const express = require('express');
 const app = express();
-const puppeteer = require('puppeteer')
+// const puppeteer = require('puppeteer')
 // whatsapp import
 
-const browser = await puppeteer.launch({
-    executablePath: '/usr/bin/chromium-browser'
-  })
+
 
 const { Client, LocalAuth, NoAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
@@ -19,7 +17,9 @@ const { standingCon, goalsCon } = require('./functions/conditionals');
 
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: { headless: true, args: ["--no-sandbox"] },
+
 });
 
 // express work
