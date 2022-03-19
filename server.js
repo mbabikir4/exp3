@@ -1,7 +1,7 @@
 //express import
 
-const express = require('express');
-const app = express();
+// const express = require('express');
+// const app = express();
 
 // whatsapp import
 
