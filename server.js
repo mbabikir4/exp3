@@ -20,13 +20,13 @@ const client = new Client({
 });
 
 // express work
-let isReady = "Not Yet";
-const port = process.env.PORT || 8080
-app.listen(port);
-app.set('view engine', 'ejs')
-app.get('/', (req,res) => {
-    res.render("index", {text: isReady})
-})
+// let isReady = "Not Yet";
+// const port = process.env.PORT || 8080
+// app.listen(port);
+// app.set('view engine', 'ejs')
+// app.get('/', (req,res) => {
+//     res.render("index", {text: isReady})
+// })
 
 
 // whatsapp work
@@ -39,7 +39,7 @@ client.on('qr', qr => {
 
 client.on('ready', () => {
     console.log('Client is ready!');
-    isReady = "Ready";
+    // isReady = "Ready";
     
 
 
