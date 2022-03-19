@@ -1,9 +1,9 @@
 //express import
 
-// const express = require('express');
-// const app = express();
+const express = require('express');
+const app = express();
 
-// whatsapp import
+whatsapp import
 
 const browser = await puppeteer.launch({
     executablePath: '/usr/bin/chromium-browser'
@@ -22,14 +22,14 @@ const client = new Client({
     authStrategy: new LocalAuth()
 });
 
-// express work
-// let isReady = "Not Yet";
-// const port = process.env.PORT || 8080
-// app.listen(port);
-// app.set('view engine', 'ejs')
-// app.get('/', (req,res) => {
-//     res.render("index", {text: isReady})
-// })
+express work
+let isReady = "Not Yet";
+const port = process.env.PORT || 8080
+app.listen(port);
+app.set('view engine', 'ejs')
+app.get('/', (req,res) => {
+    res.render("index", {text: isReady})
+})
 
 
 // whatsapp work
@@ -42,7 +42,7 @@ client.on('qr', qr => {
 
 client.on('ready', () => {
     console.log('Client is ready!');
-    // isReady = "Ready";
+    isReady = "Ready";
     
 
 
