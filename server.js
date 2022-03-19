@@ -2,7 +2,7 @@
 
 const express = require('express');
 const app = express();
-
+const puppeteer = require('puppeteer')
 // whatsapp import
 
 const browser = await puppeteer.launch({
