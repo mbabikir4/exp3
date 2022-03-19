@@ -9,28 +9,28 @@ const mentionAll = async (msg, client) => {
 
   let text = "";
   let mentions = [];
+  let participant;
+  
   let admin = 'x';
   for (let participant of chat.participants) {
+   participant = participant.id.user == msg.author.split('@')[0] ? participant : {isAdmin: 'false', id: { user: '233'}}
+
     const contact = await client.getContactById(participant.id._serialized);
     mentions.push(contact);
     text += `@${participant.id.user} `;
-    console.log(participant.id.user === msg.author.split('@')[0] && participant.isAdmin == false)
-
-    console.log(participant.id.user === msg.author.split('@')[0] && participant.isAdmin == true)
     // console.log("all in one:",participant.id_serialized === msg.author && participant.isAdmin === false)
-    if(participant.id.user === msg.author.split('@')[0] && participant.isAdmin == false) {
-      msg.reply('منت ادمن صمها بس')
-     
-      
-    }
-    else if(participant.isAdmin == true) {
-      if(participant.id.user == msg.author.split('@')[0]) {
-        msg.reply(text, chat.id_serialized, { mentions });
-      }
+   
+  }
+  if(participant.id.user === msg.author.split('@')[0] && participant.isAdmin == false) {
+    msg.reply('منت ادمن صمها بس')
+   
     
+  }
+  else if(participant.isAdmin == true) {
+    if(participant.id.user == msg.author.split('@')[0]) {
+      msg.reply(text, chat.id_serialized, { mentions });
     }
-
-    
+  
   }
 
   
