@@ -9,24 +9,25 @@ const mentionAll = async (msg, client) => {
 
   let text = "";
   let mentions = [];
-  let participant;
-  
+  let participantX = {isAdmin: false, id: {user: '222'}};
+
   let admin = 'x';
   for (let participant of chat.participants) {
-   participant = participant.id.user == msg.author.split('@')[0] ? participant : {isAdmin: 'false', id: { user: '233'}}
-
+    if(participant.id.user == msg.author.split('@')[0]) {
+      participant = participant
+    }
     const contact = await client.getContactById(participant.id._serialized);
     mentions.push(contact);
     text += `@${participant.id.user} `;
     // console.log("all in one:",participant.id_serialized === msg.author && participant.isAdmin === false)
    
   }
-  if(participant.id.user === msg.author.split('@')[0] && participant.isAdmin == false) {
+  if(participantX.id.user === msg.author.split('@')[0] && participant.isAdmin == false) {
     msg.reply('منت ادمن صمها بس')
    
     
   }
-  else if(participant.isAdmin == true) {
+  else if(participantX.isAdmin == true) {
     if(participant.id.user == msg.author.split('@')[0]) {
       msg.reply(text, chat.id_serialized, { mentions });
     }
