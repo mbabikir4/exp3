@@ -21,7 +21,7 @@ const client = new Client({
 });
 
 // express work
-
+let qrV = "not yet"
 let isReady = "Not Yet";
 const port = process.env.PORT || 8080
 app.listen(port);
@@ -35,11 +35,14 @@ app.get('/', (req,res) => {
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
+    qrV = qr;
+    
 });
 
 client.on('ready', () => {
     console.log('Client is ready!');
     isReady = "Ready";
+    
 
 
 });
