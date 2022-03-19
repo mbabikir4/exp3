@@ -3,7 +3,6 @@
 const express = require('express');
 const app = express();
 
-
 // whatsapp import
 
 
@@ -17,11 +16,10 @@ const { standingCon, goalsCon } = require('./functions/conditionals');
 
 
 const client = new Client({
-    authStrategy: new NoAuth()
+    authStrategy: new LocalAuth()
 });
 
 // express work
-let qrV = "not yet"
 let isReady = "Not Yet";
 const port = process.env.PORT || 8080
 app.listen(port);
@@ -35,8 +33,8 @@ app.get('/', (req,res) => {
 
 client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
-    qrV = qr;
-    
+
+
 });
 
 client.on('ready', () => {

@@ -1,6 +1,0 @@
-2022/03/18-20:13:32.468 ab03 Reusing MANIFEST /Users/mohi/exp1/.wwebjs_auth/session/Default/Local Storage/leveldb/MANIFEST-000001
-2022/03/18-20:13:32.468 ab03 Recovering log #3
-2022/03/18-20:13:32.469 ab03 Reusing old log /Users/mohi/exp1/.wwebjs_auth/session/Default/Local Storage/leveldb/000003.log 
-2022/03/18-20:21:34.568 16207 Level-0 table #5: started
-2022/03/18-20:21:34.591 16207 Level-0 table #5: 14032 bytes OK
-2022/03/18-20:21:34.631 16207 Delete type=0 #3
