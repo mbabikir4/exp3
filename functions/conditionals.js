@@ -23,7 +23,23 @@ const goalsCon = (body) => {
 };
 
 };
+const matchEventCon = (body) => {
+  
+  const split = body.split(' ');
+  const bool =  split.body[0] === 'مباراة'
+  const number = persianJs(split[1]).toEnglishNumber().toString();
+  return {
+    bool,
+    number,
 
+};
+
+};
+
+
+const isAdmin = (msg) => {
+
+}
 
 // const returnName = (id) => {
 //     switch (id) {
@@ -39,6 +55,8 @@ const goalsCon = (body) => {
 module.exports = {
     standingCon,
     goalsCon,
+    matchEventCon,
+    
 
 
 }

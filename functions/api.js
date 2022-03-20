@@ -1,7 +1,7 @@
 const { default: axios } = require("axios");
 
-const key = "BmUj6H5xdUg6ETLC";
-const secret = "LmfZG4z3QZsacSSOeN7kucSI68PL1BoM";
+const key = process.env.KEY || "BmUj6H5xdUg6ETLC";
+const secret = process.env.SECRET || "LmfZG4z3QZsacSSOeN7kucSI68PL1BoM";
 
 
 const soccer = axios.create({
@@ -60,7 +60,31 @@ const fetchTopScorers = async (comp_id) => {
 }
 
 
+const fetchLiveScores = async () => {
+    const res = await soccer.get('/scores/live.json', {
+        params: {
+            competition_id: '2,244,245,243,223,1,4,3,5,313,315,152,334,333,179',
+         
+        }
+    });
+    const data = await res.data;
+    return data;
 
+}
+
+const fetchMatchData = async (match_id) => {
+    const res = await soccer.get('/scores/events.json', {
+        params: {
+            match_id
+        }
+    });;
+
+    const data = await res.data;
+
+    return data;
+
+
+}
 
 
 
@@ -69,6 +93,8 @@ module.exports = {
     getFixturesToday,
     getStandings,
     fetchTopScorers,
+    fetchLiveScores,
+    fetchMatchData
 
 
 }
