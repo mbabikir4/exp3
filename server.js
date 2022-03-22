@@ -12,8 +12,9 @@ const qrcode = require('qrcode-terminal');
 
 //files for real
 const arabic = require('./lang/arabic');
-const { mentionAll, todayFixMessage, standingIntro, StandingsMsg, goalScorersMsg } = require('./functions/whats');
+const { mentionAll, todayFixMessage, standingIntro, StandingsMsg, goalScorersMsg, getEventsMatch, getLiveMatches } = require('./functions/whats');
 const { standingCon, goalsCon } = require('./functions/conditionals');
+const { fetchLiveScores, fetchMatchData } = require('./functions/api');
 
 
 const client = new Client({
@@ -93,9 +94,19 @@ client.on('message', msg => {
     }
     else if(msg.body === 'فوت ١') {
         msg.reply('بكبك اكبر مهرج في الارض')
+        
+
     }
     else if(msg.body === 'فوت ٢') {
         msg.reply('مصطفى مهرج + ميسي اكبر من باريس')
+    }
+    else if(msg.body === 'فوت مباشر') {
+        getLiveMatches(msg)
+    }
+    else if(msg.body.includes('فوت مباراة')) {
+        getEventsMatch(msg);
+
+
     }
 });
 
