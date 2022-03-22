@@ -1,7 +1,7 @@
 const persianJs = require("persianjs");
 
 const standingCon = (body) => {
-  const bool = body == "دوري ٢" || body == "دوري ١" || body == "دوري ٤" || body == "دوري ٥" || body == "دوري ٣" || body == "دوري ٣١٣" ? true : false;
+  const bool = body == "دوري ٢" || body == "دوري ١" || body == "دوري ٤" || body == "دوري ٥" || body == "دوري ٣" || body == "دوري ٣١٣" || body == "دوري ٣٤٥" || body == "دوري ٣٦" ? true : false;
   const split = body.split(' ');
   const number = persianJs(split[1]).toEnglishNumber().toString();
   
