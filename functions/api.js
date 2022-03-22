@@ -19,7 +19,7 @@ const soccer = axios.create({
 const getFixturesToday = async () => {
     const res = await soccer.get('/fixtures/matches.json',{
         params: {
-            competition_id: '2,244,245,243,223,1,4,3,5,313,315,152,334,333,179',
+            competition_id: '2,244,245,243,223,1,4,3,5,313,315,152,334,333,179,363,364,358,360,361,36,385',
             date: 'today',
         } 
     })
@@ -63,8 +63,8 @@ const fetchTopScorers = async (comp_id) => {
 const fetchLiveScores = async () => {
     const res = await soccer.get('/scores/live.json', {
         params: {
-            competition_id: '2,244,245,243,223,1,4,3,5,313,315,152,334,333,179',
-         
+            competition_id: '2,244,245,243,223,1,4,3,5,313,315,152,334,333,179,363,364,358,360,361,36,385',
+
         }
     });
     const data = await res.data;
@@ -75,11 +75,12 @@ const fetchLiveScores = async () => {
 const fetchMatchData = async (match_id) => {
     const res = await soccer.get('/scores/events.json', {
         params: {
-            match_id
+            id: match_id
         }
     });;
 
     const data = await res.data;
+    console.log(data);
 
     return data;
 

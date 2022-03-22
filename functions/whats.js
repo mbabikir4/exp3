@@ -2,6 +2,7 @@ const moment = require("moment");
 const arabic = require("../lang/arabic");
 const { reply } = require("../lang/arabic");
 const { getFixturesToday, getStandings, fetchTopScorers, fetchMatchData, fetchLiveScores } = require("./api");
+const { matchEventCon } = require("./conditionals");
 
 
 const mentionAll = async (msg, client) => {
@@ -22,7 +23,7 @@ const mentionAll = async (msg, client) => {
     // console.log("all in one:",participant.id_serialized === msg.author && participant.isAdmin === false)
    
   }
-  console
+  
   if(participantX.id.user === msg.author.split('@')[0] && participantX.isAdmin == false) {
     msg.reply('منت ادمن صمها بس')
    
@@ -57,8 +58,13 @@ ${obj.location}
         `;
   });
   const msgToStr = await msgArr.join('\n----------------------\n');
-  
-  await msg.reply(msgToStr);
+  if(data.data.fixtures.length == 0 ) {
+    msg.reply('لا توجد مباريات مهمة اليوم')
+  }
+  else if(data.data.fixtures.length != 0) {
+  msg.reply(msgToStr);
+
+  }
 };
 
 
@@ -137,16 +143,23 @@ ${obj.team.name}
 
 
 const getEventsMatch = async (msg) => {
-  const {number} = fetchMatchData(msg.body);
-  const {data} = fetchMatchData(number);
+  const {number} = matchEventCon(msg.body);
+  const {data} = await fetchMatchData(number);
+  data.event.sort((a,b) => (Number(b.sort) - Number(a.sort)));
+
   const arrEvents = data.event.map(obj => (
     `
+الحدث: ${obj.event}
+اللاعب: ${obj.player}
+الوقت: ${obj.time}
 
     
-    
-    
     `
-  ))
+  ));
+
+  const EventsMsg = arrEvents.join('--------------------------------');
+  msg.reply(EventsMsg);
+
 
 
 }
@@ -154,10 +167,27 @@ const getEventsMatch = async (msg) => {
 
 const getLiveMatches = async (msg) => {
   const {data} = await fetchLiveScores();
-  const arrLive = data.match.map(`
-
+  const arrLive = data.match.map(obj => (`
+${obj.home_name} ضد ${obj.away_name}
   
-  `)
+الوقت: ${obj.time}
+  
+النتيجة:
+  
+${obj.score}
+  
+كود المباراة: ${obj.fixture_id}
+    
+    `));
+
+
+  const LiveAll = arrLive.join('---------------------------');
+ if(data.match.length == 0) {
+   msg.reply('لا توجد مباريات حاليا')
+ }
+ else if(data.match.length != 0) [
+   msg.reply(LiveAll)
+ ]
 }
 
 

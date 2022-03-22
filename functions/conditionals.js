@@ -26,8 +26,8 @@ const goalsCon = (body) => {
 const matchEventCon = (body) => {
   
   const split = body.split(' ');
-  const bool =  split.body[0] === 'مباراة'
-  const number = persianJs(split[1]).toEnglishNumber().toString();
+  const bool =  split[0] === 'مباراة'
+  const number = persianJs(split[2]).toEnglishNumber().toString();
   return {
     bool,
     number,
