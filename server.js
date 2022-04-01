@@ -23,9 +23,7 @@ const { fetchLiveScores, fetchMatchData } = require('./functions/api');
 
 
 const client = new Client({
-    authStrategy: new NoAuth({
-        // session: {}
-    }),
+    authStrategy: new NoAuth(),
     puppeteer: { headless: true, args: ["--no-sandbox"] },
 
 });
@@ -49,11 +47,11 @@ client.on('qr', qr => {
 
 });
 
-client.on('authenticated', (session) => {    
-    // Save the session object however you prefer.
-    // Convert it to json, save it to a file, store it in a database...
-    console.log(session);
-});
+// client.on('authenticated', (session) => {    
+//     // Save the session object however you prefer.
+//     // Convert it to json, save it to a file, store it in a database...
+//     console.log(session);
+// });
 
 client.on('ready', () => {
     console.log('Client is ready!');
