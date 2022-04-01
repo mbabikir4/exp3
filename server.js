@@ -7,7 +7,7 @@ const app = express();
 
 
 
-const { Client, LocalAuth, NoAuth } = require('whatsapp-web.js');
+const { Client, LocalAuth, NoAuth, LegacySessionAuth } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
 
 //files for real
@@ -17,8 +17,15 @@ const { standingCon, goalsCon } = require('./functions/conditionals');
 const { fetchLiveScores, fetchMatchData } = require('./functions/api');
 
 
+// db
+
+// const pool = require('./db');
+
+
 const client = new Client({
-    authStrategy: new LocalAuth(),
+    authStrategy: new NoAuth({
+        // session: {}
+    }),
     puppeteer: { headless: true, args: ["--no-sandbox"] },
 
 });
@@ -26,6 +33,7 @@ const client = new Client({
 // express work
 let isReady = "Not Yet";
 const port = process.env.PORT || 8080
+app.use(express.json())
 app.listen(port);
 app.set('view engine', 'ejs')
 app.get('/', (req,res) => {
@@ -39,6 +47,12 @@ client.on('qr', qr => {
     qrcode.generate(qr, {small: true});
 
 
+});
+
+client.on('authenticated', (session) => {    
+    // Save the session object however you prefer.
+    // Convert it to json, save it to a file, store it in a database...
+    console.log(session);
 });
 
 client.on('ready', () => {
